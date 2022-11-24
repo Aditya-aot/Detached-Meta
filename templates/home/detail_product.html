@@ -15,9 +15,9 @@
        
           <div class="col-sm-6 mb-sm-40"><a class="gallery" href="{{product.image.url}}"><img src="{{product.image.url}}" alt="Single Product Image"/></a>
             <ul class="product-gallery">
-              <li><a class="gallery" href="/static/images/shop/product-8.jpg" ></a><img class="fit-picture" src="/static/images/shop/product-8.jpg" alt="Single Product" width="665" height="750" /></li>
+              <!-- <li><a class="gallery" href="/static/images/shop/product-8.jpg" ></a><img class="fit-picture" src="/static/images/shop/product-8.jpg" alt="Single Product" width="665" height="750" /></li>
               <li><a class="gallery" href="/static/images/shop/product-9.jpg"></a><img class="fit-picture" src="/static/images/shop/product-9.jpg" alt="Single Product"/></li>
-              <li><a class="gallery" href="/static/images/shop/product-10.jpg"></a><img class="fit-picture" src="/static/images/shop/product-10.jpg" alt="Single Product"/></li>
+              <li><a class="gallery" href="/static/images/shop/product-10.jpg"></a><img class="fit-picture" src="/static/images/shop/product-10.jpg" alt="Single Product"/></li> -->
             </ul>
           </div>
       
@@ -56,7 +56,7 @@
               <div class="col-sm-4 mb-sm-20">
                 <!-- <input class="form-control input-lg" type="number" name="" value="1" max="40" min="1" required="required"/> -->
               </div>
-              <div class="col-sm-8"><a class="btn btn-lg btn-block btn-round btn-b" href="#">Add To Cart</a></div>
+              <div class="col-sm-8"><a class="btn btn-lg btn-block btn-round btn-b" href="/add_cart/{{product.id}}">Add To Cart</a></div>
             </div>
 
             <div class="col-sm-4 mb-sm-20">
@@ -121,7 +121,7 @@
 
             <div class="row mb-20">
               <div class="col-sm-12">
-                <div class="product_meta">Categories:<a href="#"> Man, </a><a href="#">Clothing, </a><a href="#">T-shirts</a>
+                <div class="product_meta">Categories:<a href="#"> Meta, </a><a href="#">3d Model, </a><a href="#">VR</a>
                 </div>
               </div>
             </div>
@@ -246,6 +246,27 @@
             <h2 class="module-title font-alt">Related Products</h2>
           </div>
         </div>
+
+        <div class="row multi-columns-row"></div>
+        
+        {% for pro in top_product %}
+        {% if pro.top_product %}
+       
+          <div class="col-sm-6 col-md-3 col-lg-3">
+            <div class="shop-item">
+              <div class="shop-item-image"><img src={{pro.image.url}} alt="Accessories Pack"/>
+                <div class="shop-item-detail"><a href="/detail/{{pro.id}}" class="btn btn-round btn-b"><span class="icon-basket">Add To Cart</span></a></div>
+              </div>
+              <h4 class="shop-item-title font-alt"><a href="#">{{pro.name}}</a></h4>₹{{pro.price}}
+            </div>
+          </div>
+          
+       
+
+          {% endif %}
+        {% endfor %}
+      <!-- </div>
+
         <div class="row multi-columns-row">
           <div class="col-sm-6 col-md-3 col-lg-3">
             <div class="shop-item">
@@ -280,7 +301,7 @@
             </div>
           </div>
         </div>
-      </div>
+      </div> -->
     </section>
     <hr class="divider-w">
     <!-- <section class="module">
@@ -339,84 +360,21 @@
         </div>
       </div>
     </section> -->
-    <div class="module-small bg-dark">
-      <div class="container">
-        <div class="row">
-          <div class="col-sm-3">
-            <div class="widget">
-              <h5 class="widget-title font-alt">About Titan</h5>
-              <p>The languages only differ in their grammar, their pronunciation and their most common words.</p>
-              <p>Phone: +1 234 567 89 10</p>Fax: +1 234 567 89 10
-              <p>Email:<a href="#">somecompany@example.com</a></p>
-            </div>
+  </section>
+  <div class="module-small bg-dark">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-3">
+          <div class="widget">
+            <h5 class="widget-title font-alt">Detached Meta</h5>
+            <p>The languages only differ in their grammar, their pronunciation and their most common words.</p>
+            <p>Phone: +1 234 567 89 10</p>
+            <p>Email:<a href="#">detachedmeta@gmail.com</a></p>
           </div>
-          <div class="col-sm-3">
-            <div class="widget">
-              <h5 class="widget-title font-alt">Recent Comments</h5>
-              <ul class="icon-list">
-                <li>Maria on <a href="#">Designer Desk Essentials</a></li>
-                <li>John on <a href="#">Realistic Business Card Mockup</a></li>
-                <li>Andy on <a href="#">Eco bag Mockup</a></li>
-                <li>Jack on <a href="#">Bottle Mockup</a></li>
-                <li>Mark on <a href="#">Our trip to the Alps</a></li>
-              </ul>
-            </div>
-          </div>
-          <div class="col-sm-3">
-            <div class="widget">
-              <h5 class="widget-title font-alt">Blog Categories</h5>
-              <ul class="icon-list">
-                <li><a href="#">Photography - 7</a></li>
-                <li><a href="#">Web Design - 3</a></li>
-                <li><a href="#">Illustration - 12</a></li>
-                <li><a href="#">Marketing - 1</a></li>
-                <li><a href="#">Wordpress - 16</a></li>
-              </ul>
-            </div>
-          </div>
-          <div class="col-sm-3">
-            <div class="widget">
-              <h5 class="widget-title font-alt">Popular Posts</h5>
-              <ul class="widget-posts">
-                <li class="clearfix">
-                  <div class="widget-posts-image"><a href="#"><img src="/static/images/rp-1.jpg" alt="Post Thumbnail"/></a></div>
-                  <div class="widget-posts-body">
-                    <div class="widget-posts-title"><a href="#">Designer Desk Essentials</a></div>
-                    <div class="widget-posts-meta">23 january</div>
-                  </div>
-                </li>
-                <li class="clearfix">
-                  <div class="widget-posts-image"><a href="#"><img src="/static/images/rp-2.jpg" alt="Post Thumbnail"/></a></div>
-                  <div class="widget-posts-body">
-                    <div class="widget-posts-title"><a href="#">Realistic Business Card Mockup</a></div>
-                    <div class="widget-posts-meta">15 February</div>
-                  </div>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <hr class="divider-d">
-    <footer class="footer bg-dark">
-      <div class="container">
-        <div class="row">
-          <div class="col-sm-6">
-            <p class="copyright font-alt">&copy; 2017&nbsp;<a href="index.html">TitaN</a>, All Rights Reserved</p>
-          </div>
-          <div class="col-sm-6">
-            <div class="footer-social-links"><a href="#"><i class="fa fa-facebook"></i></a><a href="#"><i class="fa fa-twitter"></i></a><a href="#"><i class="fa fa-dribbble"></i></a><a href="#"><i class="fa fa-skype"></i></a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </footer>
-  </div>
-  <div class="scroll-up"><a href="#totop"><i class="fa fa-angle-double-up"></i></a></div>
-</main>
-
-
+    
+       <div class="scroll-up"><a href="#totop"><i class="fa fa-angle-double-up"></i></a></div> 
+  </main>
+  
 <!-- <style>
   img {
      max-width: 665px;

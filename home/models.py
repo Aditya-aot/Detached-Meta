@@ -5,6 +5,7 @@ from django.contrib.auth.models import User , auth
 
 import cloudinary_storage
 import cloudinary
+from django.contrib.auth.models import User , auth 
 
 
 # Create your models here.
@@ -27,3 +28,7 @@ class product_model(models.Model) :
 
     def __str__(self):
         return self.name 
+
+class cart_model(models.Model) :
+    user = models.ForeignKey(User , on_delete=models.CASCADE,null=True,default="N/A")
+    product = models.ForeignKey(product_model,on_delete=models.CASCADE,null=True)

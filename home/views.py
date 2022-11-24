@@ -2,7 +2,7 @@ from contextvars import Context
 import email
 from itertools import product
 from django.shortcuts import render , redirect
-from .models import category_model , product_model
+from .models import category_model , product_model ,cart_model
 import razorpay
 from django.views.decorators.csrf import csrf_exempt
 
@@ -47,6 +47,7 @@ def detail_view(request,pk) :
 
         context = {
         'product' : product_info ,
+        'top_product' : product ,
         'payment' : payment,
             }
         print("**********************************")
@@ -66,6 +67,7 @@ def detail_view(request,pk) :
         print("**********************************")
         context = {
             'product' : product_info ,
+            'top_product' : product[::-1] ,
         }
         return render(request, 'home/detail_product.html',context)
 
@@ -129,3 +131,23 @@ def download_confirm_view(request,order,pk) :
     }
     return render(request, 'home/download_confirm.html',context)
 
+
+def add_cart_view(request, pk) :
+    print("----->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> out",pk)
+    # if request.method == "POST" :
+    # print("----->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>in",pk)
+    user_cart = cart_model(user=request.user ,product_id=pk )
+    user_cart.save()
+    print("----->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>in",pk)
+    return redirect("/cart")
+
+
+def cart_view(request) :
+    cart = cart_model.objects.all()
+    cart_user = cart.filter(user=request.user)
+
+
+    context = {
+        'cart' : cart_user[::-1] ,
+    }
+    return render(request, 'home/cart.html',context)
