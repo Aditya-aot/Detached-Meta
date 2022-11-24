@@ -3,6 +3,12 @@ asgiref==3.4.1
 
 certifi==2022.6.15
 
+cloudinary==1.29.0
+django-cloudinary-storage==0.3.0
+django-googledrive-storage==1.6.0
+
+
+
 # charset-normalizer==2.1.0
 charset-normalizer==2.0.0
 
