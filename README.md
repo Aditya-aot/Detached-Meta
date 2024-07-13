@@ -1,7 +1,7 @@
 Detached                                                               
 http://detachedmeta.pythonanywhere.com/
 
--------------------
+--------------------
 We are creating a virtual world where you can roam free, or you can also travel here for a business like actual trades between players, which include trading with real money where all users
 
 We are a smooth doorway to the virtual world through creativity and innovation that strives to be a reality in a post-digital and regulated world. Creating Metaverse to allow users and players to participate in the vast network of real-time 3D virtual worlds
